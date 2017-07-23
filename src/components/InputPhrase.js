@@ -17,6 +17,7 @@ class InputPhrase extends Component {
       <div>
         <h1>Enter a phrase you want to remember</h1>
         <input type="text" onChange={this.handleChange.bind(this)}/>
+        <button>click here when done</button>
       <h2>Phrase: {this.state.phrase}</h2>
       </div>
     )
