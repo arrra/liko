@@ -13,7 +13,7 @@ class InputPhrase extends Component {
   }
 
   handleClick() {
-    this.props.onDone(this.state.phrase)
+    this.props.onDone(this.state.phrase);
   }
 
   render() {
