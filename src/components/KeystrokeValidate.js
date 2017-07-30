@@ -15,6 +15,10 @@ class Keystroke extends Component {
     document.addEventListener("keydown", this.handleKeyPress.bind(this))
   }
 
+  componentWillUnmount(){
+    document.addEventListener("keydown", this.handleKeyPress.bind(this))
+  }
+
   handleKeyPress(event) {
     let currentKeyPressed = event.key;
     if(this.state.keyRecord){
