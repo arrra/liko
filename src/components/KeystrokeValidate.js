@@ -10,6 +10,7 @@ class Keystroke extends Component {
       keyRecord: false
     }
   }
+
   componentWillMount(){
     document.addEventListener("keydown", this.handleKeyPress.bind(this))
   }
@@ -23,7 +24,6 @@ class Keystroke extends Component {
         console.log('false')
       }
       this.setState({keyCount: this.state.keyCount + 1})
-
     }
   }
 
@@ -37,8 +37,7 @@ class Keystroke extends Component {
   render() {
     return (
       <div>
-        <input onKeyPress={this.handleKeyPress.bind(this)}/>
-        <InputPhrase onDone={this.getdata.bind(this)} onKeyPress={this.handleKeyPress.bind(this)}/>
+        <InputPhrase onDone={this.getdata.bind(this)}/>
       </div>
     )
   }
