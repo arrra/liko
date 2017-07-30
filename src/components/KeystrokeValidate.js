@@ -7,16 +7,20 @@ class Keystroke extends Component {
     this.state = {
       phrase: '',
       keyPressed: '',
-      disableInput: false
+      disableInput: false,
+      keyCount: 0
     }
+  }
+  componentWillMount(){
+    document.addEventListener("keydown", this.oneKeyPressed.bind(this))
+  }
+  oneKeyPressed(event){
+    this.setState({keyCount: this.state.keyCount + 1})
+    console.log(event.key)
   }
 
   handleKeyPress(event) {
     this.setState({keyPressed :  this.state.keyPressed + event.key});
-    if(this.state.keyPressed !== this.state.phrase.slice(0, this.state.keyPressed.length )){
-      this.setState({disableInput: true});
-    }
-
   }
 
   getdata(data) {
@@ -24,9 +28,10 @@ class Keystroke extends Component {
   }
 
   render() {
+    console.log(this.state.phrase)
     return (
       <div>
-        <input onKeyPress={this.handleKeyPress.bind(this)} disabled={this.state.disableInput}/>
+        <input onKeyPress={this.handleKeyPress.bind(this)}/>
         <InputPhrase onDone={this.getdata.bind(this)}/>
       </div>
     )
