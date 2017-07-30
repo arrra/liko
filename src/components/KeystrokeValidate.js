@@ -6,33 +6,39 @@ class Keystroke extends Component {
     super()
     this.state = {
       phrase: '',
-      keyPressed: '',
-      disableInput: false,
-      keyCount: 0
+      keyCount: 0,
+      keyRecord: false
     }
   }
   componentWillMount(){
-    document.addEventListener("keydown", this.oneKeyPressed.bind(this))
-  }
-  oneKeyPressed(event){
-    this.setState({keyCount: this.state.keyCount + 1})
-    console.log(event.key)
+    document.addEventListener("keydown", this.handleKeyPress.bind(this))
   }
 
   handleKeyPress(event) {
-    this.setState({keyPressed :  this.state.keyPressed + event.key});
+    let currentKeyPressed = event.key;
+    if(this.state.keyRecord){
+      if(this.state.phrase[this.state.keyCount] === currentKeyPressed){
+        console.log('true')
+      } else {
+        console.log('false')
+      }
+      this.setState({keyCount: this.state.keyCount + 1})
+
+    }
   }
 
   getdata(data) {
-    this.setState({phrase: this.state.phrase + data})
+    this.setState({
+      phrase: this.state.phrase + data,
+      keyRecord: true
+    })
   }
 
   render() {
-    console.log(this.state.phrase)
     return (
       <div>
         <input onKeyPress={this.handleKeyPress.bind(this)}/>
-        <InputPhrase onDone={this.getdata.bind(this)}/>
+        <InputPhrase onDone={this.getdata.bind(this)} onKeyPress={this.handleKeyPress.bind(this)}/>
       </div>
     )
   }
