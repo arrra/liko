@@ -39,6 +39,7 @@ class Keystroke extends Component {
   }
 
   render() {
+    console.log(this.state.phrase)
     return (
       <div>
         <InputPhrase onDone={this.getdata.bind(this)}/>
