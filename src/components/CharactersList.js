@@ -4,11 +4,10 @@ const CharactersList = (props) => {
   return(
     <div>
     {props.list.map((char,key) => 
-      <p key={key}>{char}</p>
+      <p key={key}>{char.char}</p>
     )}
     </div>
-
-  )  
+  )
 }
 
 export default CharactersList;
