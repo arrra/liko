@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Keystroke from './components/KeystrokeValidate'
+import InputPhrase from './components/InputPhrase'
 
 class App extends Component {
   render() {
     return (
-      <Keystroke/>
+      <InputPhrase/>
     )
   }
 }

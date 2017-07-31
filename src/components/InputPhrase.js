@@ -12,7 +12,7 @@ class InputPhrase extends Component {
 
   handleClick() {
     this.setState({phrase: this.textInput.value.split('')})
-    this.props.onDone(this.state.phrase);
+    // this.props.onDone(this.state.phrase);
   }
 
   render() {
