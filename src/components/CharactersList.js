@@ -4,7 +4,7 @@ const CharactersList = (props) => {
   return(
     <div>
     {props.list.map((char,key) => 
-      <p key={key}>{char.char}</p>
+      <p style={{color:char.color}} key={key}>{char.char}</p>
     )}
     </div>
   )
