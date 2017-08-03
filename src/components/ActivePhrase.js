@@ -7,6 +7,7 @@ class ActivePhrase extends Component {
 
     this.state = ({
       currentIndex: 0,
+      streak: 0,
       characterStates: null,
     });
   }
@@ -40,7 +41,7 @@ class ActivePhrase extends Component {
           }
 
           let style = {
-            fontSize: '3rem',
+            fontSize: `${this.state.streak+1}rem`,
             fontWeight: 'bold',
             color,
           };
@@ -52,6 +53,10 @@ class ActivePhrase extends Component {
 
   _handleKeyPress(event) {
     if (this.state.currentIndex >= this.props.phrase.length) {
+      this.setState({
+        streak: (this._perfectPhraseEntered()) ? this.state.streak+1 : 0,
+      });
+
       this._resetWithPhrase(this.props.phrase);
       return;
     }
@@ -66,6 +71,12 @@ class ActivePhrase extends Component {
     this.setState({
       characterStates,
       currentIndex: this.state.currentIndex+1,
+    });
+  }
+
+  _perfectPhraseEntered() {
+    return this.state.characterStates.every(charState => {
+      return charState.isCorrect;
     });
   }
 
