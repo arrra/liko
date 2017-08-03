@@ -44,6 +44,7 @@ class ActivePhrase extends Component {
             fontSize: `${this.state.streak+1}rem`,
             fontWeight: 'bold',
             color,
+            opacity: (i <= this.state.currentIndex) ? 1.0 : 0.66,
           };
           return <span style={style}>{char}</span>
         })}
