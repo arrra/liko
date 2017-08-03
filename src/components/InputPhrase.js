@@ -1,52 +1,19 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
-import CharactersList from './CharactersList';
+import ActivePhrase from './ActivePhrase';
 
 class InputPhrase extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+
     this.state = ({
-      keyCount: 0,
-      keyRecord: false,
-      phrase: []
+      phrase: null,
     })
   }
 
-  componentWillMount(){
-    document.addEventListener("keydown", this.handleKeyPress.bind(this))
-  }
-
-  componentWillUnmount(){
-    document.addEventListener("keydown", this.handleKeyPress.bind(this))
-  }
-
   handleClick() {
-    let newState = [];
-    for(let i = 0; i < this.textInput.value.length; i++){
-      newState.push({'id': i, 'char': this.textInput.value[i], 'color': 'black', 'isCorrect': false})
-    }
-    this.setState({
-      phrase: newState,
-      keyRecord: true
-    });
-
-  }
-
-  handleKeyPress(event){
-    let currentKeyPressed = event.key;
-    if(this.state.keyRecord){
-      if(this.state.phrase[this.state.keyCount]['char'] === currentKeyPressed){
-        let temp = this.state.phrase;
-        temp[this.state.keyCount]['color'] = 'green'
-        this.setState({phrase: temp})
-      } else {
-        let temp = this.state.phrase;
-        temp[this.state.keyCount]['color'] = 'red'
-        console.log('false')
-      }
-      this.setState({keyCount: this.state.keyCount + 1})
-    }
-
+    const phrase = this.textInput.value;
+    this.setState({phrase});
   }
 
   render() {
@@ -55,7 +22,10 @@ class InputPhrase extends Component {
         <h1>Enter a phrase you want to remember</h1>
         <input type="text" ref={(input) => { this.textInput = input; }}/>
         <button onClick={this.handleClick.bind(this)}>click here when done</button>
-      <CharactersList list={this.state.phrase}/>
+
+        <ActivePhrase
+          phrase={this.state.phrase}
+        />
       </div>
     )
   }
