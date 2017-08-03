@@ -13,7 +13,7 @@ class ActivePhrase extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("keydown", this._handleKeyPress.bind(this))
+    document.addEventListener("keypress", this._handleKeyPress.bind(this))
   }
 
   componentWillReceiveProps(nextProps) {
