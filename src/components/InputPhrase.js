@@ -11,13 +11,6 @@ class InputPhrase extends Component {
     })
   }
 
-    this.setState({
-      phrase: newState,
-      keyRecord: true
-    });
-
-  }
-
   handleClick() {
     const phrase = this.textInput.value;
     this.setState({phrase});
