@@ -52,6 +52,8 @@ class ActivePhrase extends Component {
   }
 
   _handleKeyPress(event) {
+    if (!this.props.phrase) return;
+
     if (this.state.currentIndex >= this.props.phrase.length) {
       this.setState({
         streak: (this._perfectPhraseEntered()) ? this.state.streak+1 : 0,
