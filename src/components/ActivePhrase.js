@@ -29,7 +29,7 @@ class ActivePhrase extends Component {
     const phrase = this.props.phrase || '';
 
     return (
-      <div>
+      <div className="phrase test-phrase">
         {Array.from(phrase).map((char, i) => {
           let color = 'grey';
 

@@ -1,0 +1,33 @@
+.phrase {
+  position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,50%);
+}
+
+.input-phrase {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.enter-phrase {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.test-phrase {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background: #F1F3F4;
+}
