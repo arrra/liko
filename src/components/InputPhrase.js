@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 import ActivePhrase from './ActivePhrase';
-import main from '../main.css';
 
 class InputPhrase extends Component {
   constructor(props){
